@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practice-kube-argo-kust
+spec:
+  selector:
+    matchLabels:
+      app: practice-kube-argo-kust
+  template:
+    metadata:
+      labels:
+        app: practice-kube-argo-kust
+    spec:
+      containers:
+      - name: practice-kube-argo-kust
+        image: practice-kube-argo-kust
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8082
