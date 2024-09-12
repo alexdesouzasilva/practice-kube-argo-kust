@@ -54,17 +54,16 @@ jobs:
         kustomize edit set image practice-kube-argo-kust=alexsouzasilva/practice-kube-argo-kust:${{ github.sha }}
         cat kustomization.yaml
 
-    - name: Commit
+    - name: commit
       run: |
-        git config --local user.email "actions@github.com"
+        git config --local user.email "action@github.com"
         git config --local user.name "Deploy Action"
         git commit -am "change image tag"
-
-    - name: Push
+    - name: push
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}}
+        branch: ${{ github.ref }}
 
 
 
