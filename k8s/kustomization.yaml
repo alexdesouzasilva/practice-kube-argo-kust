@@ -10,4 +10,4 @@ namespace: kubeapp
 images:
 - name: practice-kube-argo-kust
   newName: alexsouzasilva/practice-kube-argo-kust
-  newTag: latest
+  newTag: 62e7378a3c1a03d0a7d39df97a6dd4e569b7edb6
