@@ -10,3 +10,7 @@ argocd app get practice-kube-argo-kust
 argocd app sync practice-kube-argo-kust
 
 argocd app delete practice-kube-argo-kust
+
+
+# GitHub:
+* Emojis https://emojipedia.org/pt/
