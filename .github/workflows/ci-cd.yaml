@@ -15,9 +15,9 @@ jobs:
         cache: maven
     - name: Build with maven
       run: |
-        echo "Iniciando Processo de Build ${{ github.workspace }} 🏗️"
+        echo "Iniciando Processo de Build 🏗️"
         mvn clean install
-        run ls
+        ls
     - name: Test with maven
       run: mvn test
 
