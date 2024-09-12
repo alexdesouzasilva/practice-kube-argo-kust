@@ -1,12 +1,12 @@
-# IMAGEM BASE
+# Imagem base para rodar aplicação
 FROM eclipse-temurin:17-jre-alpine
 
-# Diretório de trabalho
+# Definindo diretório de trablho dentro do container
 WORKDIR /app
 
-# Copiar JAR para dentro do container
+# Copiar o JAR da aplicação para o container
 COPY target/practice-kube-argo-kust.jar app.jar
 
-# Executar aplicação
+# Comando para executar aplicação
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
 

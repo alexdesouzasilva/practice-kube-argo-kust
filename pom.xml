@@ -47,7 +47,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.name}</finalName>
+		<finalName>practice-kube-argo-kust</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
