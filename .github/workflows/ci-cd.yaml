@@ -30,7 +30,7 @@ jobs:
     - name: Buind and push
       uses: docker/build-push-action@v1.1.0
       with:
-        username: alexsouzasilva
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: alexsouzasilva/kube-argo-kust
+        username: ${{ vars.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        repository: alexsouzasilva/practice-kube-argo-kust
         tags: ${{ github.sha }}, latest
