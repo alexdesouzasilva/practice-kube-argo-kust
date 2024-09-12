@@ -17,7 +17,7 @@ jobs:
       run: |
         echo "Iniciando Processo de Build 🏗️"
         mvn clean install
-        ls
+        ls target
     - name: Test with maven
       run: mvn test
 
@@ -34,6 +34,6 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ github.repository }}:${{ github.sha }}
+        tags: ${{ vars.DOCKERHUB_USERNAME }}/practice-kube-argo-kust:${{ github.sha }}
 
 
