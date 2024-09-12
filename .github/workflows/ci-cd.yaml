@@ -34,3 +34,37 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: alexsouzasilva/practice-kube-argo-kust
         tags: ${{ github.sha }}, latest
+
+  Deploy:
+    name: Deploy 🔥
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Kustomize
+      uses: imranismail/setup-kustomize@v1
+      with:
+        kustomize_version: v3.6.1
+
+    - name: update k8s
+      run: |
+        cd k8s
+        kustomize edit set image practice-kube-argo-kust=alexsouzasilva/practice-kube-argo-kust:${{ github.sha }}
+        cat kustomization.yaml
+
+    - name: Commit
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Deploy Action"
+        git commit -am "change image tag"
+
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{{ github.ref }}}
+
+
+
